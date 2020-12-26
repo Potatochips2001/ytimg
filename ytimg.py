@@ -16,8 +16,22 @@ def get(uri_):
             uri_ = uri_.replace(f"http://youtube.com/watch?v=", '')
         elif f"https://youtube.com/watch?v=" in uri_:
             uri_ = uri_.replace(f"https://youtube.com/watch?v=", '')
-        elif "youtube" not in uri_:
-            return "Check URI"
+        elif f"https://youtu.be/" in uri_:
+            uri_ = uri_.replace("https://youtu.be/", '')
+            if f"?" in uri_:
+                uri_ = uri_[:uri_.find("?")]
+        elif f"http://youtu.be/" in uri_:
+            uri_ = uri_.replace("http://youtu.be/", '')
+            if f"?" in uri_:
+                uri_ = uri_[:uri_.find("?")]
+        elif f"https://www.youtu.be/" in uri_:
+            uri_ = uri_.replace("https://www.youtu.be/", '')
+            if f'?' in uri_:
+                uri_ = uri_[:uri_.find('?')]
+        elif f"http://www.youtu.be/" in uri_:
+            uri_ = uri_.replace("http://www.youtu.be/", '')
+            if f'?' in uri_:
+                uri_ = uri_[:uri_.find('?')]
     except Exception as e:
         return e
     try:
